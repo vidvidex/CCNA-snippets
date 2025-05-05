@@ -30,7 +30,7 @@ R1(config)# username joe secret cisco123
 
 ## Switch
 
-Configuration is the same as the router, but you also need to assign an IP address to the switch.
+Configuration is the same as the router, but you also need to assign an IP address to the switch and configure a default gateway in order to access it from other networks.
 
 ```txt
 # Make sure the device has a hostname set (anything but the default)
@@ -40,6 +40,9 @@ Switch(config)# hostname S1
 Switch(config)# interface vlan 1
 Switch(config-if)# ip address 192.168.1.2 255.255.255.0
 Switch(config-if)# no shutdown
+
+# Set default gateway
+Switch(config)#ip default-gateway 192.168.1.1
 
 # You need to set a domain
 S1(config)# ip domain-name example.net
